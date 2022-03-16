@@ -1,5 +1,5 @@
 /*
- * UC_3 : As a User need to enter a valid Email ID.
+ * UC_4 : As a User need to enter a valid Phone Number.
  * @author - Kumar Bamankar
  */
 package userregistrationlambda;
@@ -51,7 +51,7 @@ public class UserRegistrationMain {
 		/*
 		* @purpose: As a User need to enter a valid Email ID
 		* 
-		* @param: regex,lastName
+		* @param: regex,email
 		* 
 		* @function: To check Email ID is Valid or not
 		* 
@@ -59,6 +59,18 @@ public class UserRegistrationMain {
 		*/
 		Validation emailid = (regex, email) ->  Pattern.compile(regex).matcher(email).matches();
 		System.out.println("Email ID Validation is " +emailid.validate("^[A-z a-z 0-9 + -]+([.]{1}[a-z 0-9]+)*[@][a-z 0-9]{1,5}([.][a-z]{2,3})+([. a-z]{2})?$", "Kumar.bamankar09@gmail.com"));
+		
+		/*
+		* @purpose: As a User need to enter a valid Phone number
+		* 
+		* @param: regex,mobNumber
+		* 
+		* @function: To check Email ID is Valid or not
+		* 
+		* @returns true or false
+		*/
+		Validation phnnumber = (regex, mobNumber) ->  Pattern.compile(regex).matcher(mobNumber).matches();
+		System.out.println("Phone Number Validation is " +phnnumber.validate("^[0-9]{2}[ ]?[0-9]{10}$", "91 9876543210"));
 	
 	}
 }
