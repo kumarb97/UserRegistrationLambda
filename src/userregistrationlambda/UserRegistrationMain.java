@@ -1,5 +1,5 @@
 /*
- * UC_4 : As a User need to enter a valid Phone Number.
+ * UC_5_rule-01 : As a User need to enter a valid Password.
  * @author - Kumar Bamankar
  */
 package userregistrationlambda;
@@ -20,6 +20,8 @@ public class UserRegistrationMain {
 		 * 4.Overriding validate method to check firstname of user is valid or not.
 		 * 5.Overriding validate method to check lastname of user is valid or not.
 		 * 6.Overriding validate method to check Email id of user is valid or not
+		 * 7.Overriding validate method to check Phone number of user is valid or not
+		 * 8.Overriding validate method to check Password of user is valid or not
 		 */
 		
 	   /*
@@ -65,12 +67,24 @@ public class UserRegistrationMain {
 		* 
 		* @param: regex,mobNumber
 		* 
-		* @function: To check Email ID is Valid or not
+		* @function: To check Phone number is Valid or not
 		* 
 		* @returns true or false
 		*/
 		Validation phnnumber = (regex, mobNumber) ->  Pattern.compile(regex).matcher(mobNumber).matches();
 		System.out.println("Phone Number Validation is " +phnnumber.validate("^[0-9]{2}[ ]?[0-9]{10}$", "91 9876543210"));
+		
+		/*
+		* @purpose: As a User need to enter a valid Password having minimum 8 characters
+		* 
+		* @param: regex,password
+		* 
+		* @function: To check Password is Valid or not
+		* 
+		* @returns true or false
+		*/
+		Validation password1 = (regex, password) ->  Pattern.compile(regex).matcher(password).matches();
+		System.out.println("Password Validation is " +password1.validate("^[A-Za-z0-9]{8,}$", "Asdffggghhgg"));
 	
 	}
 }
