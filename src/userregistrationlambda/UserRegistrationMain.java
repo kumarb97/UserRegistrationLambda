@@ -1,5 +1,5 @@
 /*
- * UC_5_rule-01 : As a User need to enter a valid Password.
+ * UC_6_rule-02 : As a User need to enter a valid Password.
  * @author - Kumar Bamankar
  */
 package userregistrationlambda;
@@ -85,6 +85,18 @@ public class UserRegistrationMain {
 		*/
 		Validation password1 = (regex, password) ->  Pattern.compile(regex).matcher(password).matches();
 		System.out.println("Password Validation is " +password1.validate("^[A-Za-z0-9]{8,}$", "Asdffggghhgg"));
+		
+		/*
+		* @purpose: As a User need to enter a valid Password having minimum 8 characters and atleast have one upper case.
+		* 
+		* @param: regex,password
+		* 
+		* @function: To check Password is Valid or not
+		* 
+		* @returns true or false
+		*/
+		Validation password2 = (regex, password) ->  Pattern.compile(regex).matcher(password).matches();
+		System.out.println("Password Validation is " +password2.validate("^(?=.*[A-Z])[A-Za-z0-9]{8,}$", "sdffgGghhgg"));
 	
 	}
 }
