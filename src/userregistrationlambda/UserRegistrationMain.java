@@ -1,5 +1,5 @@
 /*
- * UC_2 : As a User need to enter a valid Last Name. last name starts with cap and has minimum 3 charcters.
+ * UC_3 : As a User need to enter a valid Email ID.
  * @author - Kumar Bamankar
  */
 package userregistrationlambda;
@@ -17,8 +17,9 @@ public class UserRegistrationMain {
 		 * 1.Creating a Interface named as Validation
 		 * 2.In that creating a abstract method named as validate.
 		 * 3.Using validate method directly in main class with the help of lambda expression.
-		 * 4.Overriding validate method to check firstname of user is validate or not.
-		 * 5.Overriding validate method to check lastname of user is validate or not.
+		 * 4.Overriding validate method to check firstname of user is valid or not.
+		 * 5.Overriding validate method to check lastname of user is valid or not.
+		 * 6.Overriding validate method to check Email id of user is valid or not
 		 */
 		
 	   /*
@@ -46,6 +47,18 @@ public class UserRegistrationMain {
 		*/
 		Validation lastname = (regex, lastName) ->  Pattern.compile(regex).matcher(lastName).matches();
 		System.out.println("Last Name Validation is " +lastname.validate("^[A-Z]{1}[a-z]{2,}$", "Bamankar"));
+		
+		/*
+		* @purpose: As a User need to enter a valid Email ID
+		* 
+		* @param: regex,lastName
+		* 
+		* @function: To check Email ID is Valid or not
+		* 
+		* @returns true or false
+		*/
+		Validation emailid = (regex, email) ->  Pattern.compile(regex).matcher(email).matches();
+		System.out.println("Email ID Validation is " +emailid.validate("^[A-z a-z 0-9 + -]+([.]{1}[a-z 0-9]+)*[@][a-z 0-9]{1,5}([.][a-z]{2,3})+([. a-z]{2})?$", "Kumar.bamankar09@gmail.com"));
 	
 	}
 }
